@@ -2,10 +2,15 @@
 function IdentityCodeValid(code) { 
     function cap (str){    //如果身份证验证中有x,则变为X再做判断；
         var temp = str.split("");
-        temp.forEach(function(i,index){if(i==='x'){temp[index]="X"}});return temp.join("");
+        temp.forEach(function(i,index){
+            if(i==='x'){
+                temp[index]="X";
+            }
+        });
+        return temp.join("");
     }
 
-    var code = cap(code);
+    code = cap(code);
     var copycode = code ;
     var city={11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",21:"辽宁",22:"吉林",23:"黑龙江 ",31:"上海",32:"江苏",33:"浙江",34:"安徽",35:"福建",36:"江西",37:"山东",41:"河南",42:"湖北 ",43:"湖南",44:"广东",45:"广西",46:"海南",50:"重庆",51:"四川",52:"贵州",53:"云南",54:"西藏 ",61:"陕西",62:"甘肃",63:"青海",64:"宁夏",65:"新疆",71:"台湾",81:"香港",82:"澳门",91:"国外 "};
     var tip = "";
@@ -53,9 +58,9 @@ function IdentityCodeValid(code) {
     function getDate(code){    //得到类似2013-01-01、2013/01/01、2013/01/32、2013/02/29的日期格式
         var date = '' ;
         if(code.length===18){
-             date = code.substring(6,14)
+             date = code.substring(6,14);
         }else if(code.length===15){
-             date = '19'+code.substring(6,12)
+             date = '19'+code.substring(6,12);
         }else{
             return '';
         }
@@ -64,7 +69,7 @@ function IdentityCodeValid(code) {
     }
     if(!check(getDate(copycode))){
         pass = false ;
-        tip = "日期格式不正确"
+        tip = "日期格式不正确";
     }
 //   if(!pass) alert(tip);
     return pass;
