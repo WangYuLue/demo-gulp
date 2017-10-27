@@ -1,0 +1,7 @@
+$highlight-color: gray;
+.a{
+    background: $highlight-color;
+    .b{
+        font-size: 42px;
+    }
+}
