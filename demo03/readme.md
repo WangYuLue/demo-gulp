@@ -1,5 +1,7 @@
 ### 编译sass并压缩css
 
 >cd demo03
-npm install
-gulp dealCSS
+
+>npm install
+
+>gulp dealCSS
